@@ -1,0 +1,117 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #9c9b9b;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: rgb(200, 248, 186);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 900px;
+    display: flex;
+    padding: 20px;
+}
+
+.left_panel {
+    flex: 2;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.input_section {
+    display: flex;
+    flex-direction: column;
+}
+
+.image_container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.image_box {
+    flex: 1 1 calc(33.333% - 20px); /* 3 images per row with 10px gap on both sides */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.image_box img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.image_box input {
+    width: 100%;
+    margin-top: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+
+.right_panel {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    
+}
+
+.result-section {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.status-section{
+    padding-top: 20px;
+}
+
+.status-section p {
+    font-size: 18px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.money-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Adjust the gap as needed */
+    margin-top: 10px;
+}
+
+.money-container p {
+    margin: 0;
+    text-align: left;
+}
+
+.status-section input {
+    text-align: center;
+    font-size: 18px;
+    width: 100px;
+}
+
+.buttons {
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.buttons button {
+    width: 150px;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 18px;
+}
+.exit{
+    background-color: red;
+    color: white;
+    border: none;
+}

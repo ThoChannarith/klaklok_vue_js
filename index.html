@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kla Klok</title>
+    <link rel="stylesheet" href="css/main_style.css">
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="left_panel">
+                <!-- Select Image -->
+                <div class="input_section">
+                    <div class="image_container">
+                        <div class="image_box">
+                            <img src="images/1.jpg" alt="Image 1">
+                            <input type="number" placeholder="0" min="0">
+                        </div>
+                        <div class="image_box">
+                            <img src="images/2.jpg" alt="Image 2">
+                            <input type="number" placeholder="0" min="0">
+                        </div>
+                        <div class="image_box">
+                            <img src="images/3.jpg" alt="Image 3">
+                            <input type="number" placeholder="0" min="0">
+                        </div>
+                        <div class="image_box">
+                            <img src="images/4.jpg" alt="Image 4">
+                            <input type="number" placeholder="0" min="0">
+                        </div>
+                        <div class="image_box">
+                            <img src="images/5.jpg" alt="Image 5">
+                            <input type="number" placeholder="0" min="0">
+                        </div>
+                        <div class="image_box">
+                            <img src="images/6.jpg" alt="Image 6">
+                            <input type="number" placeholder="0" min="0">
+                        </div>
+                    </div>
+                </div>
+                <!-- Result -->
+                <div class="result-section">
+                    <div class="image_container">
+                        <div class="image_box">
+                            <img src="images/1.jpg" alt="Image 1">
+                        </div>
+                        <div class="image_box">
+                            <img src="images/1.jpg" alt="Image 1">
+                        </div>
+                        <div class="image_box">
+                            <img src="images/1.jpg" alt="Image 1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right_panel">
+                <div class="status-section">
+                    <p>You Don't Receive Money!</p>
+                    <div class="money-container">
+                        <p>Your Money</p>
+                        <input type="number" value="5000" readonly>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button :disabled="btn_start" id="btn_start" @click="start">START</button>
+                    <button :disabled="btn_stop" id="btn_stop" @click="stop">STOP</button>
+                    <button class="exit" id="btn_exit" @click="exit">EXIT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<script>
+    const { createApp } = Vue;
+    createApp({
+        data() {
+            return {
+                message: 'Hello Vue!',
+                btn_start: false,
+                btn_stop: true
+            }
+        },
+        methods:{
+            exit(){
+                window.close();
+            },
+            start(){
+                this.btn_start = true
+                this.btn_stop = false
+            },
+            stop(){
+                this.btn_start = false
+                this.btn_stop = true
+            }
+        }
+    }).mount('#app');
+</script>
+
+</body>
+</html>
