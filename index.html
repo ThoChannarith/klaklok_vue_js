@@ -43,13 +43,13 @@
                 <div class="result-section">
                     <div class="image_container">
                         <div class="image_box">
-                            <img src="images/1.jpg" alt="Image 1">
+                            <img :src="result_image1" >
                         </div>
                         <div class="image_box">
-                            <img src="images/1.jpg" alt="Image 1">
+                            <img :src="result_image2" >
                         </div>
                         <div class="image_box">
-                            <img src="images/1.jpg" alt="Image 1">
+                            <img :src="result_image3" >
                         </div>
                     </div>
                 </div>
@@ -78,9 +78,14 @@
     createApp({
         data() {
             return {
-                message: 'Hello Vue!',
+
                 btn_start: false,
-                btn_stop: true
+                btn_stop: true,
+                images:["images/1.jpg", "images/2.jpg", "images/3.jpg", "images/4.jpg", "images/5.jpg", "images/6.jpg"],
+                result_image1:"",
+                result_image2:"",
+                result_image3:"",
+                intervalId: null
             }
         },
         methods:{
@@ -90,11 +95,35 @@
             start(){
                 this.btn_start = true
                 this.btn_stop = false
+                this.start_random()
             },
             stop(){
                 this.btn_start = false
                 this.btn_stop = true
+                this.stop_random()
+            },
+            getRandomImage() {
+                const randomIndex = Math.floor(Math.random() * this.images.length);
+                return this.images[randomIndex];
+            },
+            start_random(){
+                if (!this.intervalId) {
+                    this.intervalId = setInterval(() => {
+                    this.result_image1 = this.getRandomImage();
+                    this.result_image2 = this.getRandomImage();
+                    this.result_image3 = this.getRandomImage();
+                    }, 10000)
+                }
+            },
+            stop_random(){
+                if (this.intervalId) {
+                    clearInterval(this.intervalId);
+                    this.intervalId = null;
+                }
             }
+        },
+        beforeUnmount() {
+            this.stopTimer(); // Clean up the interval on component destruction
         }
     }).mount('#app');
 </script>
